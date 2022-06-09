@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <%- include('./components/head') %>
+</head>
+
+<body>
+
+    <%- include('./components/nav') %>
+
+    <% if (pokemonSearch.length == 0) {%>
+        <header>
+            <img src="/img/banner.png" alt="banner">
+            <% if(message !="" ) { %>
+                <%- include('./components/alerts') %>
+                    <% } %>
+        </header>
+    <% } %>
+
+        <main>
+        
+        <% if (pokemonSearch.length == 0) {%>
+            <section id='cards'>
+                <% pokedex.forEach((pokemon)=> { %>
+                    <%- include('./components/cards', {poke: pokemon})%>
+                <% }) %>
+            </section>
+        <% } else { %>
+            <div id="result-search-space">
+                <h2>Resultado da Pesquisa</h2>
+                <a href="/">Todos os Pokemons</a>
+            </div>
+            <section id='cards'>
+                <% pokemonSearch.forEach((pokemon)=> { %>
+                    <%- include('./components/cards' , {poke: pokemon})%>
+                <% }) %>
+            </section>
+        <% } %>
+
+        </main>
+
+        <% if (pokemonPut !=null) {%>
+            <%- include('./components/modalPut') %>
+                <% } %>
+
+                    <% if (pokemonDel !=null) {%>
+                        <%- include('./components/modalDel') %>
+                            <% } %>
+
+                                <%- include('./components/footer') %>
+
+                                    <script src="/script.js"></script>
+
+</body>
+
+</html>
