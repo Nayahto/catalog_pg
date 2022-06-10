@@ -1,7 +1,7 @@
 const Sequelize = require(`sequelize`);
 const connection = require(`../database/db`);
 
-const pokemon = connection.define('pokemon', {
+const Pokemon = connection.define('pokemon', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -37,4 +37,4 @@ const pokemon = connection.define('pokemon', {
 }
 );
 
-module.exports = pokemon;
+module.exports = Pokemon;

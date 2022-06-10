@@ -9,7 +9,7 @@
 
     <%- include('./components/nav') %>
 
-    <% if (pokemonSearch.length == 0) {%>
+    <% if (Pokemon.length == 0) {%>
         <header>
             <img src="/img/banner.png" alt="banner">
             <% if(message !="" ) { %>
@@ -22,19 +22,27 @@
         
         <% if (pokemonSearch.length == 0) {%>
             <section id='cards'>
+
                 <% pokedex.forEach((pokemon)=> { %>
                     <%- include('./components/cards', {poke: pokemon})%>
                 <% }) %>
+
             </section>
+
+
         <% } else { %>
+
             <div id="result-search-space">
                 <h2>Resultado da Pesquisa</h2>
                 <a href="/">Todos os Pokemons</a>
             </div>
+
             <section id='cards'>
-                <% pokemonSearch.forEach((pokemon)=> { %>
+
+                <%= Pokemon.forEach((pokemon)=> { %>
                     <%- include('./components/cards' , {poke: pokemon})%>
                 <% }) %>
+
             </section>
         <% } %>
 
